@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard - Network Monitor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Network Monitor</h1>
+    <div>Welcome, {{ session.username }} | <a href="{{ url_for('logout') }}">Logout</a></div>
+  </header>
+
+  <nav>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#ping">Ping Test</a>
+    <a href="#uptime">Uptime</a>
+    <a href="#logs">Logs</a>
+    <a href="{{ url_for('help') }}">Help</a>
+    {% if session.username == 'admin' %}
+    <a href="{{ url_for('admin') }}">Admin</a>
+    {% endif %}
+  </nav>
+
+  <section id="dashboard">
+    <h2>Network Overview</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Public IP</h3>
+        <p>{{ public_ip }}</p>
+      </div>
+      <div class="card">
+        <h3>Local IP</h3>
+        <p>{{ local_ip }}</p>
+      </div>
+      <div class="card">
+        <h3>Bandwidth (Mbps)</h3>
+        <p>DL: <span id="dl-speed">{{ bandwidth.download }}</span> | UL: <span id="ul-speed">{{ bandwidth.upload }}</span></p>
+      </div>
+      <div class="card">
+        <h3>Device Count</h3>
+        <p>{{ devices|length }} devices</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="ping">
+    <h2>Ping Test</h2>
+    <input type="text" id="ping-target" placeholder="Enter IP or Domain" value="google.com">
+    <button onclick="runPing()">Test Ping</button>
+    <div id="ping-result"></div>
+  </section>
+
+  <section id="uptime">
+    <h2>Uptime Check</h2>
+    <input type="text" id="uptime-url" placeholder="Enter Website URL" value="google.com">
+    <button onclick="checkUptime()">Check Status</button>
+    <div id="uptime-result"></div>
+  </section>
+
+  <section id="device-scan">
+    <h2>Local Devices</h2>
+    <table>
+      <tr><th>IP Address</th><th>MAC Address</th></tr>
+      {% for dev in devices %}
+      <tr><td>{{ dev.ip }}</td><td>{{ dev.mac }}</td></tr>
+      {% endfor %}
+    </table>
+  </section>
+
+  <section id="logs">
+    <h2>Recent Logs</h2>
+    <div class="log-tabs">
+      <button class="tab-btn active" onclick="openTab('ping-log')">Ping</button>
+      <button class="tab-btn" onclick="openTab('uptime-log')">Uptime</button>
+    </div>
+    <div id="ping-log" class="log-content">
+      <ul id="ping-log-list"></ul>
+    </div>
+    <div id="uptime-log" class="log-content" style="display:none">
+      <ul id="uptime-log-list"></ul>
+    </div>
+  </section>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

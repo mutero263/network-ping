@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Help - Network Monitor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Help & Documentation</h1>
+    <a href="{{ url_for('dashboard') }}">← Back to Dashboard</a>
+  </header>
+
+  <section>
+    <h2>How to Use This System</h2>
+    <ul>
+      <li><strong>Login/Register:</strong> Use your credentials to access the dashboard.</li>
+      <li><strong>Ping Test:</strong> Enter a domain to test latency and packet loss.</li>
+      <li><strong>Uptime:</strong> Monitor if websites are online or offline.</li>
+      <li><strong>Bandwidth:</strong> Simulated every 2 seconds.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>FAQs</h2>
+    <div class="faq">
+      {% for faq in faqs %}
+        <details>
+          <summary>{{ faq.q }}</summary>
+          <p>{{ faq.a }}</p>
+        </details>
+      {% endfor %}
+    </div>
+  </section>
+</body>
+</html>
