@@ -12,7 +12,7 @@ import netifaces
 from scapy.all import ARP, Ether, srp
 
 app = Flask(__name__)
-app.secret_key = 'your-secret-key-here'  # Change this in production
+app.secret_key = 'your-secret-key-here' 
 bcrypt = Bcrypt(app)
 
 # === DATABASE SETUP ===
@@ -322,13 +322,13 @@ if __name__ == '__main__':
         os.makedirs('database')
     init_db()
 
-    # Create default admin user
+    # Default admin user
     with sqlite3.connect(DATABASE) as conn:
         c = conn.cursor()
         c.execute("SELECT * FROM users WHERE username='admin'")
         if not c.fetchone():
-            pwd = bcrypt.generate_password_hash('admin').decode('utf-8')
-            c.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)", ('admin', pwd, 'admin@local.net'))
+            pwd = bcrypt.generate_password_hash('polite123').decode('utf-8')
+            c.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)", ('admin', pwd, 'politemakamanzi@gmail.com'))
             conn.commit()
 
     app.run(host='0.0.0.0', port=5000, debug=False)

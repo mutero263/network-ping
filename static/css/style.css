@@ -1,25 +1,61 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: Arial, sans-serif; line-height: 1.6; }
-header { background: #2c3e50; color: white; padding: 1rem; display: flex; justify-content: space-between; align-items: center; }
-nav { background: #34495e; padding: 0.5rem; }
-nav a { color: white; margin: 0 1rem; text-decoration: none; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 1rem; }
-.card { border: 1px solid #ddd; padding: 1rem; border-radius: 8px; background: #f9f9f9; }
-section { padding: 1rem; max-width: 1200px; margin: 0 auto; }
-input, button { padding: 0.5rem; margin: 0.2rem 0; }
-button { background: #3498db; color: white; border: none; cursor: pointer; }
-button:hover { background: #2980b9; }
-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
-table, th, td { border: 1px solid #ccc; }
-th, td { padding: 0.5rem; text-align: left; }
-.auth-container { max-width: 400px; margin: 10% auto; padding: 2rem; border: 1px solid #ddd; border-radius: 8px; }
-.alert { color: red; margin: 1rem 0; }
-.faq details { margin: 1rem 0; }
-.log-tabs { display: flex; margin-bottom: 1rem; }
-.tab-btn { padding: 0.5rem 1rem; background: #eee; border: none; cursor: pointer; }
-.tab-btn.active { background: #3498db; color: white; }
-.log-content { border: 1px solid #ddd; padding: 1rem; min-height: 100px; }
-
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+body { 
+  font-family: Arial, sans-serif; 
+  line-height: 1.6; 
+  background: #081b29;
+}
+input, button { 
+  padding: 0.5rem; 
+  margin: 0.2rem 0; 
+  width: 100%; 
+  background: transparent;
+  color: #fff;
+  border: 2px solid gray; 
+}
+button {    
+  position: relative;
+  width:  100%;
+  height: 35px;
+  border: 2px solid #0ef;
+  border-radius: 45px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 300;
+  background: linear-gradient(#081b29,#0ef,#081b29,#0ef);
+  cursor: pointer;
+}
+button:hover { 
+  background: #2980b9; 
+}
+.auth-container { 
+  max-width: 450px; 
+  height: 300px; 
+  margin: 10% auto; 
+  padding: 2rem; 
+  border: 2px solid #0ef; 
+  border-radius: 8px; 
+  box-shadow: 0 0 25px #0ef; 
+}
+.auth-container h2 { 
+  color: #fff;    
+  text-align: center;
+  pointer-events: none;
+}
+.auth-container p { 
+  color: grey;
+  text-align: center;
+}
+.auth-container a { 
+  color: #0ef;
+}
+.alert { 
+  color: red; 
+  margin: 1rem 0; 
+}
 @media (max-width: 768px) {
   nav { display: flex; flex-wrap: wrap; }
   nav a { margin: 0.5rem; }

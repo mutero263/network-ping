@@ -1,4 +1,4 @@
-# Network Monitoring Dashboard
+# Network Monitoring System
 
 A full-stack web application for monitoring network health, including ping tests, bandwidth simulation, uptime checks, and local device discovery. Built with **Python, Flask, SQLite, HTML, CSS, and JavaScript**.
 
@@ -36,30 +36,30 @@ A full-stack web application for monitoring network health, including ping tests
 - **Responsive Design**  
   Works on desktop, tablet, and mobile devices.
 
----
 
 ## Technologies Used
 
-| Layer | Technology |
-|------|-----------|
-| **Frontend** | HTML, CSS, JavaScript |
-| **Backend** | Python 3.11+ (Flask) |
-| **Database** | SQLite |
-| **Networking** | `scapy`, `netifaces`, `requests`, system `ping` |
-| **Security** | `bcrypt` (password hashing) |
+| Layer                         | Technology 
 
----
 
-## Getting Started
+| **Frontend**                  |HTML, CSS, JavaScript 
+| **Backend**                   | Python 3.11+ (Flask) 
+| **Database**                  | SQLite 
+| **Networking**                | `scapy`, `netifaces`, `requests`, system `ping` 
+| **Security**                  | `bcrypt` (password hashing) 
+
+
+## Project Structure
 
 
 network-monitor/
 │
 ├── app.py                    # Flask backend server
 ├── database/
-│   └── network_monitor.db    # SQLite database (auto-created)
+│   └── network_monitor.db    # SQLite database 
 ├── static/
-│   ├── css/style.css         # Styling
+│   ├── css/style.css         #styling
+    ├── dashboard.css         #Styling
 │   └── js/main.js            # Client-side logic
 ├── templates/                # HTML templates
 │   ├── login.html
@@ -83,6 +83,13 @@ pip install "C:\Users\Algo-Tech Systems\Downloads\netifaces-0.11.0-cp313-cp313-w
 # THEN RUN
 pip install requests apscheduler scapy -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com
 
+# Install Npcap (For Device Discovery)
+Scapy needs Npcap to scan devices.
+
+Download: https://npcap.com
+Run installer
+Check: "Install Npcap in WinPcap API-compatible Mode"
+
 
 ### RUN THE APP
 python app.py
@@ -95,5 +102,5 @@ python app.py
 ## Default Login
 USERNAME                             PASSWORD
 
-admin                                admin
+admin                                polite123
 
