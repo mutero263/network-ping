@@ -325,9 +325,9 @@ if __name__ == '__main__':
     # Default admin user
     with sqlite3.connect(DATABASE) as conn:
         c = conn.cursor()
-        c.execute("SELECT * FROM users WHERE username='admin'")
+        c.execute("SELECT * FROM users WHERE username='mutero'")
         if not c.fetchone():
-            pwd = bcrypt.generate_password_hash('polite123').decode('utf-8')
+            pwd = bcrypt.generate_password_hash('mutero1234').decode('utf-8')
             c.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)", ('admin', pwd, 'politemakamanzi@gmail.com'))
             conn.commit()
 
