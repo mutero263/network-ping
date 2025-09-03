@@ -15,7 +15,7 @@ app = Flask(__name__)
 app.secret_key = 'your-secret-key-here' 
 bcrypt = Bcrypt(app)
 
-# === DATABASE SETUP ===
+#  DATABASE SETUP 
 DATABASE = 'database/network_monitor.db'
 
 def init_db():
