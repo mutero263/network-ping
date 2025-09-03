@@ -328,7 +328,7 @@ if __name__ == '__main__':
         c.execute("SELECT * FROM users WHERE username='mutero'")
         if not c.fetchone():
             pwd = bcrypt.generate_password_hash('mutero1234').decode('utf-8')
-            c.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)", ('admin', pwd, 'politemakamanzi@gmail.com'))
+            c.execute("INSERT INTO users (username, password, email) VALUES (?, ?, ?)", ('admin', pwd, 'richardmutero144@gmail.com'))
             conn.commit()
 
     app.run(host='0.0.0.0', port=5000, debug=False)
